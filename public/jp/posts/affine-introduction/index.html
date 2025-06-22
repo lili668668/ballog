@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Heptabase 的開源方案 - Affine | Ballog</title>
+    <link rel="canonical" href="//localhost:1313/">
+    
+    
+    
+    <meta name="description" content="">
+    
+    
+    <meta name="keywords" content="sharing, affine">
+    
+    
+    <style>
+
+
+
+:root {
+    --site-bg: url("flowertile.png");
+    --accent-color: #f55cc0;
+    --select-color: #ffc1e9;
+    --link-color: #5083C1;
+    --bg-color: #CEEAFF;
+    --text-color: #191919;
+    --bg-color2: white;
+    --border-color: #215697;
+    --special-text-color: #215697;
+    --post-header-color: white;
+    --post-shadow-color: #21569760;
+    --outline-color: #6EAAD6;
+    --outline-color2: #CEEAFF;
+    --list-style-type: "";
+    --list-style-image: url("flower.png");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@-moz-document url-prefix() {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-color) #00000000;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    -webkit-border-radius: .3rem;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+::selection {
+    background: var(--select-color);
+    color: var(--border-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: var(--site-bg);
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+p {line-height: 1.5em;}
+
+h1 {
+    font-size: 1.5em;
+    color: var(--post-header-color);
+    filter: drop-shadow(2px 0 0 var(--outline-color)) drop-shadow(0 2px 0 var(--outline-color)) drop-shadow(-2px 0 0 var(--outline-color)) drop-shadow(0 -2px 0 var(--outline-color))drop-shadow(0 1px 1px var(--outline-color2)) drop-shadow(1px 0 1px var(--outline-color2));
+}
+
+h4,
+h5,
+h6 {color: var(--special-text-color);}
+
+header {
+    background-size: 100%;
+    background-position: center;
+    min-height: 80px;
+    margin: 0 0;
+    align-content: center;
+}
+
+header > h1 {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    margin: 0 auto;
+    font-size: 2em;
+ 
+     
+    max-width: 600px;
+    padding: 6px 12px;
+    border-radius: 1em;
+    border: 4px double var(--outline-color);
+    filter: none;
+    text-align: center;
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+li.page-item {
+    list-style: none;
+}
+
+li.page-item a{
+    display: inline-flex;
+    font-size: 1rem;
+    margin: .2rem;
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+
+    text-decoration: none;
+    user-select: none;
+}
+
+li.page-item.active a{
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li.page-item.disabled a{
+    cursor: not-allowed;
+}
+
+li.page-item:not(.disabled):not(.active) a:hover{
+    background-color: var(--select-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li {
+    
+        list-style-image: var(--list-style-image);
+    
+}
+
+nav {margin: 1em;}
+
+nav.links > ul {
+    max-width: 960px;
+    margin: auto;
+    line-height: 3rem;
+    list-style-type: none;
+    padding-left: 0;
+    justify-content: space-evenly;
+}
+
+nav.links li {
+    text-align: center;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+nav.links li > a {
+    font-weight: bold;
+    background-color: var(--bg-color);
+    border: 4px double var(--outline-color);
+    padding: .5em 3em;
+    text-decoration: none;
+}
+
+nav.links li > a:visited {color: var(--link-color);}
+nav.links li > a:hover {
+    color: var(--accent-color);
+    background-color: var(--select-color);
+}
+
+nav.languages {
+    margin: .3em;
+    text-align: center;
+}
+
+
+nav.languages ul {
+    display: inline-block;
+}
+
+nav.languages ul li {
+    display: inline-block;
+}
+
+a {
+    color: var(--link-color);
+    border-radius: .3em;
+    transition: .2s ease-out;
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: .2s ease;
+}
+
+#sidebar {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    height: fit-content;
+    min-width: 320px;
+    margin-top: 1em;
+    margin-right: 2em;
+    border-radius: .5em;
+}
+
+.small-box {
+    max-width: 240px;
+    margin: auto;
+    border: 2px solid var(--bg-color);
+    font-size: 11px;
+    line-height: 1.5rem;
+}
+
+#avatar {
+    margin: .5em;
+    max-width: 320px;
+}
+
+ 
+.flower {
+    width: 300px; 
+    aspect-ratio: 1;
+    
+    
+        border-radius: 50%;
+    
+    
+}
+
+#bio {
+    margin: 20px;
+    padding: .2em;
+    background: var(--bg-color);
+    border: 4px double var(--bg-color2);
+    border-radius: 2em;
+    font-size: small;
+}
+
+#bio p { margin: 1em; }
+
+#content {
+    display: flex;
+    max-width: 960px;
+    margin: auto;
+}
+
+main {
+    padding: 1em;
+    padding-top: 0;
+}
+
+#top {
+    background-color: var(--bg-color);
+}
+
+#top section {
+    background-color: var(--bg-color2);
+    border-radius: .5em;
+    margin-bottom: 10px;
+    padding: .5em 1em;
+    width: 100%;
+}
+
+article {
+    background-color: var(--bg-color2);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+article img {
+    max-width: 100%;
+}
+
+.readmore summary {
+    font-weight: bold;
+    color: var(--special-text-color);
+    list-style: none;
+    cursor: pointer;
+}
+
+header h1 a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--special-text-color);
+}
+
+header h1 a:visited {
+    color: inherit;
+}
+
+header h1 a:hover {
+    color: inherit;
+}
+
+.readmore div {
+    display: inline;
+}
+
+.readmore div p {
+    display: inline;
+}
+
+.readmore summary::-webkit-details-marker {
+  display: none;
+}
+
+.readmore[open] > summary {
+    border-bottom: 2px dashed var(--bg-color);
+    padding-bottom: .6em;
+    margin-bottom: .6em;
+}
+
+.post-header {
+    color: var(--special-text-color);
+    font-weight: bold;
+    padding: .5rem 0;
+    border-bottom: 4px double var(--outline-color);
+}
+
+.timestamp {
+    font-weight: normal;
+    font-size: smaller;
+    margin: .2em;
+    float: right;
+}
+
+.tag-item p {
+    font-size: smaller;
+}
+
+.photosetx2,
+.photosetx3 {
+    display: grid;
+    gap: 4px;
+    align-items: center;
+}
+
+.photosetx2 {grid-template-columns: 1fr 1fr;}
+.photosetx3 {grid-template-columns: 1fr 1fr 1fr;}
+
+.cropped {
+    width: 156px;
+    height: 156px;
+    overflow: hidden;
+    object-position: 25% 25%;
+}
+.photosetx2 img,
+.photosetx3 img {object-fit: cover;}
+
+.center { text-align: center; }
+
+.img-right {
+    max-width: 7.5em;
+    max-height: 7.5em;
+    float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.small-text {
+    font-size: 11px;
+    text-shadow: var(--bg-color) 1px 1px;
+}
+
+.dropbox-btn {
+    color: var(--link-color);
+    font-weight: bold;
+    background-color: var(--bg-color);
+     
+    border: 1px solid var(--outline-color);
+     
+    text-decoration: none;
+}
+
+.dropbox-content[visible] {
+    display: block;
+}
+
+.dropbox-content {
+    display: none;
+    position: absolute;
+    z-index: 1
+}
+
+.table-of-contents {
+    background-color: var(--bg-color2);
+    padding: .3em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+.table-of-contents.sidebar {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    width: 10rem;
+    flex-shrink: 0;
+    max-height: calc(100vh - 2rem);
+    overflow-x: auto;
+}
+
+.table-of-contents.float {
+    width: max-content;
+    max-width: 50vw;
+    max-height: 50%;
+    overflow: auto;
+}
+
+.table-of-contents nav {
+    margin: 0 .5em;
+}
+
+.table-of-contents nav ul {
+    margin: .5em 1em;
+    padding: 0;
+}
+
+.table-of-contents nav li {
+    margin: .3em 0;
+}
+
+#single-post {
+    display: flex;
+    gap: 1rem;
+}
+
+#single-post > article {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#single-post > article > #post-toc-mobile {
+    display: none;
+}
+
+ 
+@media only screen and (max-width: 800px) {
+    #content {
+        flex-wrap: wrap;
+    }
+    #sidebar {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 1em;
+        border-radius: .3em;
+    }
+    header {min-height: 110px;}
+    header > h1 { 
+        width: fit-content;
+        padding: .3em 1em;
+    }
+    nav.links > ul {
+     
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #bio {width: 50%;}
+    
+    #sidebar ul {
+        line-height: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    #sidebar li {
+        margin: .3em 1em;
+    }
+
+    #single-post > .table-of-contents.sidebar {
+        display: none;
+    }
+
+    #single-post > article > #post-toc-mobile {
+        display: inline;
+    }
+}
+</style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta charset="utf-8">
+</head>
+<body>
+        <header><h1 id="Ballog"><a href="//localhost:1313/jp/">Ballog</a></h1></header>
+<main>
+    
+<div  id="single-post" >
+    <aside class="table-of-contents sidebar">
+            
+
+  <nav class="toc">
+  <ul>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#tldr" class="toc-item toc-level-1">
+          
+          
+          
+          1.
+           TL;DR
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#%e6%af%94%e8%bc%83" class="toc-item toc-level-1">
+          
+          
+          
+          2.
+           比較
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#%e3%81%84%e3%81%8f%e3%81%a4%e3%81%8b%e3%81%ae%e8%80%83%e3%81%88" class="toc-item toc-level-1">
+          
+          
+          
+          3.
+           いくつかの考え
+        </a>
+      </li>
+  </ul>
+  </nav>
+
+    </aside>
+    
+
+    <article>
+        <div id="post-toc-mobile">
+            <button id="post-toc-btn" class="dropbox-btn" onclick="toggleDropbox('post-toc')" >☰</button>
+            <div id="post-toc" class="dropbox-content table-of-contents float">
+                
+
+  <nav class="toc">
+  <ul>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#tldr" class="toc-item toc-level-1">
+          
+          
+          
+          1.
+           TL;DR
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#%e6%af%94%e8%bc%83" class="toc-item toc-level-1">
+          
+          
+          
+          2.
+           比較
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../jp/posts/affine-introduction/#%e3%81%84%e3%81%8f%e3%81%a4%e3%81%8b%e3%81%ae%e8%80%83%e3%81%88" class="toc-item toc-level-1">
+          
+          
+          
+          3.
+           いくつかの考え
+        </a>
+      </li>
+  </ul>
+  </nav>
+
+            </div>
+        </div>
+        
+        <h2>Heptabase 的開源方案 - Affine</h2>
+        
+        tags:
+        
+        <a href="../../../jp/tags/sharing">sharing</a>,
+        
+        <a href="../../../jp/tags/affine">affine</a>
+        
+        <div class="post-header">
+        @ballfish <span class="timestamp">22/06/2025</span>
+        </div>
+        <p><!-- introduction --></p>
+        
+        <div>
+        
+        <a href="../../../images/affine-introduction/affine-pro-logo.webp" target="_blank"><img style="max-height: 15rem; margin-right: .3rem;" src="../../../images/affine-introduction/affine-pro-logo.webp"></a>
+        
+        </div>
+        
+        <div class="auto-numbering" id="full-content"><!-- rest of the content -->
+<h2 id="tldr">TL;DR</h2>
+<p>もしあなたがカードボックス・ノート術（Zettelkasten）の愛好者で、従来のリニア型、上から下へのノートや文章構造とは異なり、アイデアを1枚1枚のカードに記録し、それぞれのカード間に関連性を構築するスタイルを好むなら、Heptabase というツールを聞いたことがある、または使ったことがあるかもしれません。
+<a href="https://heptabase.com/">Heptabase</a> は台湾のチームによって開発された視覚的ノートツールで、カード（Card）とホワイトボード（Whiteboard）を主要な要素としており、自由に知識を整理・連結し、個人のナレッジネットワークを構築して複雑なテーマを深く理解することができます。
+Heptabase の公式サイトには詳細な使い方や説明が用意されているので、ここでは多くを語りません。機能は非常に充実しており、UIデザインも魅力的です。
+<a href="https://affine.pro/">AFFiNE</a> を試してみる価値があります。
+AFFiNE ではカードやホワイトボード、Notionのようなデータベース機能に加え、マインドマップやお絵描き機能も使用可能です。プライバシーや情報セキュリティを重視しており、ローカル環境での使用が可能な上に、自分専用のサーバーを構築してデータを管理することもできます。</p>
+<h2 id="比較">比較</h2>
+<table>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">AFFiNE</th>
+        <th scope="col">Heptabase</th>
+    </tr>
+    <tr>
+        <th scope"row">主な機能</th>
+        <td>
+            <ul>
+                <li>ドキュメント編集、ホワイトボード描画、データベース管理の三位一体</li>
+                <li>ローカル保存とプライバシー保護</li>
+                <li>Markdown編集対応</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>ホワイトボードとマインドマップによる視覚的ノート</li>
+                <li>PDF注釈やマルチメディア対応</li>
+                <li>Markdown編集対応</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">対応プラットフォーム</th>
+        <td>
+            <ul>
+                <li>デスクトップアプリ</li>
+                <li>Web版</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>デスクトップアプリ</li>
+                <li>Web版</li>
+                <li>モバイル対応</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">同期とコラボ</th>
+        <td>
+            <ul>
+                <li>ローカル保存とクラウド同期に対応</li>
+                <li>無料プランで10GBのクラウドストレージ</li>
+                <li>複数人でのリアルタイム協業が可能</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>複数デバイスでの同期とオフラインアクセスに対応</li>
+                <li>複数人でのリアルタイム協業が可能</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">オープンソースとプライバシー</th>
+        <td>
+            <ul>
+                <li>完全オープンソースで、セルフホスティングが可能</li>
+                <li>デフォルトではローカル保存、プライバシーを重視</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>プロプライエタリ（非オープンソース）ソフトウェア</li>
+                <li>データはクラウドに保存されるが、オフラインアクセス可能</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<br>
+<p>一方、Heptabase が公式サイトに豊富なドキュメントやチュートリアルを提供しているのに対し、AFFiNE の公式サイトには「AFFiNE is not a dedicated tool. You should find your best way to use AFFiNE.（AFFiNE は決まった使い方があるツールではありません。自分に合った使い方を見つけてください）」という記述があります。
+つまり、AFFiNE は「こう使ってください」とは言わず、自由に使えるツールです。</p>
+<p>もしあなたが以下のようなポイントを重視するなら：</p>
+<ol>
+<li>美しいインターフェースデザイン</li>
+<li>豊富で多彩な機能</li>
+<li>明確な使用例</li>
+<li>ノート以外の管理負荷を減らしたい</li>
+</ol>
+<p>Heptabase をおすすめします。</p>
+<p>逆に、以下のようなニーズがあるなら：</p>
+<ol>
+<li>オープンソースやデータの自己管理が可能なツールが好き</li>
+<li>クラウドよりもローカル主体のツールが欲しい</li>
+<li>ホワイトボード上で自由に描きたい</li>
+</ol>
+<p>AFFiNE をぜひ試してみてください！</p>
+<h2 id="いくつかの考え">いくつかの考え</h2>
+<p>最後に、私自身はしばらく前に Heptabase から AFFiNE に乗り換えました。
+その理由は、Heptabase を使っていた時、実際に使っていたのは「カードとホワイトボード」機能だけで、それ以外の多機能はほとんど使っていなかったからです。仕事が忙しくなると、月に数回しかノートツールを開かないこともあり、有料で使っているのに活かしきれていないのが少しもったいなく感じていました。
+そこで今年の初め頃に Heptabase のサブスクリプションを解約し、代替ツールを探し始めました。そして ChatGPT に教えてもらったのが AFFiNE です。
+AFFiNE のセルフホスティングは非常に簡単で、公式ドキュメントに従って <code>docker compose</code> を使えばすぐに構築できます。
+また、データを自分で完全に管理できるのも安心感があります。クラウドにあるノートツールで、自社のシステム設計に関する内容を書くのは、万が一にも情報漏洩につながらないかと不安になることもあります。でもやっぱり心理的な安心感があります。
+ただし、自分でホスティングする場合のコストを真剣に計算してみると、クラウドサービスと比べて必ずしも安く済むわけではないことにも気づきました。この話はまた別の機会に、「自分でノートツールを構築する vs サブスクリプションで購入する、どちらが得か」というテーマで記事を書こうと思います。</p></div>
+        
+    </article>
+    <script>
+    window.addEventListener('click', e => {
+        let dropboxs = document.getElementsByClassName("dropbox-content");
+        let dropbox_btns = document.getElementsByClassName("dropbox-btn");
+
+        if (dropbox_btns.namedItem(e.target.id) != null) return;
+
+        if(dropboxs.namedItem(e.target.id) == null) {
+            for (let i = 0; i < dropboxs.length; i++) {
+                dropboxs[i].removeAttribute("visible");
+            }
+        }
+    }, true)
+
+    function toggleDropbox(id) {
+        let dropbox = document.getElementById(id);
+
+        dropbox.toggleAttribute("visible");
+    }
+    </script>
+</div>
+
+    
+</main>
+</body>
+</html>

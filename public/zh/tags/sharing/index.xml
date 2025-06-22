@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sharing on Ballog</title>
+    <link>http://localhost:1313/zh/tags/sharing/</link>
+    <description>Recent content in Sharing on Ballog</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 01 Feb 2025 10:00:00 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/sharing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Heptabase 的開源方案 - Affine</title>
+      <link>http://localhost:1313/zh/posts/affine-introduction/</link>
+      <pubDate>Sat, 01 Feb 2025 10:00:00 -0300</pubDate>
+      <guid>http://localhost:1313/zh/posts/affine-introduction/</guid>
+      <description>&lt;p&gt;如果你是卡片盒筆記法的愛好者。有別於傳統線性、由上而下的筆記與寫作系統。你喜歡將想法記錄在一張張卡片紙上，並建立卡片之間的關係連結。你應該聽過或看過 Heptabase 這個工具。&#xA;Heptabase (&lt;a href=&#34;https://heptabase.com/&#34;&gt;https://heptabase.com/&lt;/a&gt;) 是一款由台灣團隊開發的視覺化筆記工具，主要元素為卡片（Card）與白板（Whiteboard），讓你能夠自由地組織和連結知識，構建個人知識網絡、深入理解複雜主題。&#xA;Heptabase 官方的網站提供詳盡的使用教學與說明，因此這裡不再多加贅述。它功能齊全且畫面設計也賞心悅目。&#xA;不過如果想要一個也是有卡片與白板概念的筆記軟體，並且是開源的替代方案，那一定要來試試看 AFFiNE (&lt;a href=&#34;https://affine.pro/&#34;&gt;https://affine.pro/&lt;/a&gt;)。&#xA;除了卡片、白板與 Notion 的資料庫概念，還可以畫心智圖、繪圖等功能。而且重視隱私跟資訊安全，所以你可以只使用在 local 而不開啟雲端功能，甚至可以自架一個自己的 Server ，管理自己的筆記資料。&lt;/p&gt;&#xA;&lt;p&gt;但相對於 Heptabase 在官方網站上寫的各類的教學文件，AFFiNE 的官網文件表明：「AFFiNE is not a dedicated tool. You should find your best way to use AFFiNE.」&#xA;AFFiNE 不是一個指導使用者怎麼使用的工具，所以你可以隨意使用這個工具。&#xA;假如你喜歡：&#xA;漂亮的界面設計&#xA;豐富多樣的功能&#xA;明確的使用範例&#xA;減少管理筆記以外的心智負擔&#xA;推薦可以使用 Heptabase&#xA;假如你喜歡：&#xA;開源或可自行管理資料&#xA;更想要一個單機工具，而不是雲端工具&#xA;想要可以在白板上隨意塗鴉&#xA;那來試試 AFFiNE 吧！&#xA;最後來說一下，我自己從 Heptabase 轉到 AFFiNE 一陣子了。&#xA;主因是我發現自己其實使用 Heptabase 時，很簡單的只是想要「卡片與白板」的功能而已，其他的功能很少用到。有的時候忙起來甚至一個月開不到幾次的筆記軟體，常常在想花這個錢，但是沒有把這個工具發揮的淋漓盡致，很愧對我的錢（？）。&#xA;所以大約年初的時候，我就退掉了 Heptabase ，轉而尋找替代方案。感謝 ChatGPT 讓我認識了這個替代方案！&#xA;AFFiNE 的自架方案很簡便，只要照著官網文件，用 docker compose 輕輕鬆鬆就能架起來。&#xA;另外，我覺得可以自己掌握資料，不用擔心在雲端的筆記軟體寫這個公司系統設計的筆記，是不是一種商業機密洩漏（想太多了吧)，心理上還是有好過一點。&#xA;不過我在自架的過程中，認真計算了一下成本這件事，意識到也許自架筆記軟體的成本不會比使用雲服務筆記軟體還要便宜，不過這個就是後話了。之後再寫一篇「架設自己的筆記軟體與買筆記服務哪個更划算」的文吧。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

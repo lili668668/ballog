@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.147.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Ballog</title>
+    <link rel="canonical" href="//localhost:1313/">
+    
+    
+    
+    <meta name="description" content="">
+    
+    
+    
+    <style>
+
+
+
+:root {
+    --site-bg: url("flowertile.png");
+    --accent-color: #f55cc0;
+    --select-color: #ffc1e9;
+    --link-color: #5083C1;
+    --bg-color: #CEEAFF;
+    --text-color: #191919;
+    --bg-color2: white;
+    --border-color: #215697;
+    --special-text-color: #215697;
+    --post-header-color: white;
+    --post-shadow-color: #21569760;
+    --outline-color: #6EAAD6;
+    --outline-color2: #CEEAFF;
+    --list-style-type: "";
+    --list-style-image: url("flower.png");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@-moz-document url-prefix() {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-color) #00000000;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    -webkit-border-radius: .3rem;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+::selection {
+    background: var(--select-color);
+    color: var(--border-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: var(--site-bg);
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+p {line-height: 1.5em;}
+
+h1 {
+    font-size: 1.5em;
+    color: var(--post-header-color);
+    filter: drop-shadow(2px 0 0 var(--outline-color)) drop-shadow(0 2px 0 var(--outline-color)) drop-shadow(-2px 0 0 var(--outline-color)) drop-shadow(0 -2px 0 var(--outline-color))drop-shadow(0 1px 1px var(--outline-color2)) drop-shadow(1px 0 1px var(--outline-color2));
+}
+
+h4,
+h5,
+h6 {color: var(--special-text-color);}
+
+header {
+    background-size: 100%;
+    background-position: center;
+    min-height: 80px;
+    margin: 0 0;
+    align-content: center;
+}
+
+header > h1 {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    margin: 0 auto;
+    font-size: 2em;
+ 
+     
+    max-width: 600px;
+    padding: 6px 12px;
+    border-radius: 1em;
+    border: 4px double var(--outline-color);
+    filter: none;
+    text-align: center;
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+li.page-item {
+    list-style: none;
+}
+
+li.page-item a{
+    display: inline-flex;
+    font-size: 1rem;
+    margin: .2rem;
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+
+    text-decoration: none;
+    user-select: none;
+}
+
+li.page-item.active a{
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li.page-item.disabled a{
+    cursor: not-allowed;
+}
+
+li.page-item:not(.disabled):not(.active) a:hover{
+    background-color: var(--select-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li {
+    
+        list-style-image: var(--list-style-image);
+    
+}
+
+nav {margin: 1em;}
+
+nav.links > ul {
+    max-width: 960px;
+    margin: auto;
+    line-height: 3rem;
+    list-style-type: none;
+    padding-left: 0;
+    justify-content: space-evenly;
+}
+
+nav.links li {
+    text-align: center;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+nav.links li > a {
+    font-weight: bold;
+    background-color: var(--bg-color);
+    border: 4px double var(--outline-color);
+    padding: .5em 3em;
+    text-decoration: none;
+}
+
+nav.links li > a:visited {color: var(--link-color);}
+nav.links li > a:hover {
+    color: var(--accent-color);
+    background-color: var(--select-color);
+}
+
+nav.languages {
+    margin: .3em;
+    text-align: center;
+}
+
+
+nav.languages ul {
+    display: inline-block;
+}
+
+nav.languages ul li {
+    display: inline-block;
+}
+
+a {
+    color: var(--link-color);
+    border-radius: .3em;
+    transition: .2s ease-out;
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: .2s ease;
+}
+
+#sidebar {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    height: fit-content;
+    min-width: 320px;
+    margin-top: 1em;
+    margin-right: 2em;
+    border-radius: .5em;
+}
+
+.small-box {
+    max-width: 240px;
+    margin: auto;
+    border: 2px solid var(--bg-color);
+    font-size: 11px;
+    line-height: 1.5rem;
+}
+
+#avatar {
+    margin: .5em;
+    max-width: 320px;
+}
+
+ 
+.flower {
+    width: 300px; 
+    aspect-ratio: 1;
+    
+    
+        border-radius: 50%;
+    
+    
+}
+
+#bio {
+    margin: 20px;
+    padding: .2em;
+    background: var(--bg-color);
+    border: 4px double var(--bg-color2);
+    border-radius: 2em;
+    font-size: small;
+}
+
+#bio p { margin: 1em; }
+
+#content {
+    display: flex;
+    max-width: 960px;
+    margin: auto;
+}
+
+main {
+    padding: 1em;
+    padding-top: 0;
+}
+
+#top {
+    background-color: var(--bg-color);
+}
+
+#top section {
+    background-color: var(--bg-color2);
+    border-radius: .5em;
+    margin-bottom: 10px;
+    padding: .5em 1em;
+    width: 100%;
+}
+
+article {
+    background-color: var(--bg-color2);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+article img {
+    max-width: 100%;
+}
+
+.readmore summary {
+    font-weight: bold;
+    color: var(--special-text-color);
+    list-style: none;
+    cursor: pointer;
+}
+
+header h1 a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--special-text-color);
+}
+
+header h1 a:visited {
+    color: inherit;
+}
+
+header h1 a:hover {
+    color: inherit;
+}
+
+.readmore div {
+    display: inline;
+}
+
+.readmore div p {
+    display: inline;
+}
+
+.readmore summary::-webkit-details-marker {
+  display: none;
+}
+
+.readmore[open] > summary {
+    border-bottom: 2px dashed var(--bg-color);
+    padding-bottom: .6em;
+    margin-bottom: .6em;
+}
+
+.post-header {
+    color: var(--special-text-color);
+    font-weight: bold;
+    padding: .5rem 0;
+    border-bottom: 4px double var(--outline-color);
+}
+
+.timestamp {
+    font-weight: normal;
+    font-size: smaller;
+    margin: .2em;
+    float: right;
+}
+
+.tag-item p {
+    font-size: smaller;
+}
+
+.photosetx2,
+.photosetx3 {
+    display: grid;
+    gap: 4px;
+    align-items: center;
+}
+
+.photosetx2 {grid-template-columns: 1fr 1fr;}
+.photosetx3 {grid-template-columns: 1fr 1fr 1fr;}
+
+.cropped {
+    width: 156px;
+    height: 156px;
+    overflow: hidden;
+    object-position: 25% 25%;
+}
+.photosetx2 img,
+.photosetx3 img {object-fit: cover;}
+
+.center { text-align: center; }
+
+.img-right {
+    max-width: 7.5em;
+    max-height: 7.5em;
+    float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.small-text {
+    font-size: 11px;
+    text-shadow: var(--bg-color) 1px 1px;
+}
+
+.dropbox-btn {
+    color: var(--link-color);
+    font-weight: bold;
+    background-color: var(--bg-color);
+     
+    border: 1px solid var(--outline-color);
+     
+    text-decoration: none;
+}
+
+.dropbox-content[visible] {
+    display: block;
+}
+
+.dropbox-content {
+    display: none;
+    position: absolute;
+    z-index: 1
+}
+
+.table-of-contents {
+    background-color: var(--bg-color2);
+    padding: .3em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+.table-of-contents.sidebar {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    width: 10rem;
+    flex-shrink: 0;
+    max-height: calc(100vh - 2rem);
+    overflow-x: auto;
+}
+
+.table-of-contents.float {
+    width: max-content;
+    max-width: 50vw;
+    max-height: 50%;
+    overflow: auto;
+}
+
+.table-of-contents nav {
+    margin: 0 .5em;
+}
+
+.table-of-contents nav ul {
+    margin: .5em 1em;
+    padding: 0;
+}
+
+.table-of-contents nav li {
+    margin: .3em 0;
+}
+
+#single-post {
+    display: flex;
+    gap: 1rem;
+}
+
+#single-post > article {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#single-post > article > #post-toc-mobile {
+    display: none;
+}
+
+ 
+@media only screen and (max-width: 800px) {
+    #content {
+        flex-wrap: wrap;
+    }
+    #sidebar {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 1em;
+        border-radius: .3em;
+    }
+    header {min-height: 110px;}
+    header > h1 { 
+        width: fit-content;
+        padding: .3em 1em;
+    }
+    nav.links > ul {
+     
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #bio {width: 50%;}
+    
+    #sidebar ul {
+        line-height: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    #sidebar li {
+        margin: .3em 1em;
+    }
+
+    #single-post > .table-of-contents.sidebar {
+        display: none;
+    }
+
+    #single-post > article > #post-toc-mobile {
+        display: inline;
+    }
+}
+</style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta charset="utf-8">
+</head>
+<body>
+        <header><h1 id="Ballog"><a href="//localhost:1313/en/">Ballog</a></h1></header>
+<main>
+    
+    
+    <nav class="languages links">
+        <ul>
+        
+        <li>
+            <a href="../">中文</a>
+        </li>
+        
+        <li>
+            <a href="../jp/">日本語</a>
+        </li>
+        
+        </ul>
+    </nav>
+    
+    <div id="content">
+    <aside id="sidebar">
+        <div id="avatar">
+            
+            <img class="flower" src="../icon.png">
+            
+        </div>
+        
+        <div id="bio">
+        
+            <p>A ball-shaped fish that enjoys trying all kinds of new things, hoping to one day make a contribution to the open-source community.</p>
+
+        
+        </div>
+        
+        <div class="small-box">
+            
+            </ul>
+        </div>
+        
+        <nav class="links">
+            <ul>
+            
+            
+                <li><a href="https://github.com/lili668668">GitHub</a></li>
+            
+                <li><a href="https://ballfish.io">WebSite</a></li>
+            
+            
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <article id="top" class="clearfix">
+            
+            <section>
+            <div class="img-right">
+                <img src="../hole.png">
+            </div>
+            <div>
+            <h1>This blog is...</h1>
+            
+                <p>is a hole</p>
+            
+                <p>is a small hole where Ballfish likes to write in it.</p>
+            
+                <p>Ballfish keeps writing try to use words to fill the hole.</p>
+            
+            </div>
+            </section>
+            <section>
+            <h4>This blog has:</h4>
+                <ul>
+                
+                    <li>Recommendations</li>
+                
+                    <li>Technology</li>
+                
+                    <li>Novel</li>
+                
+                </ul>
+            </section>
+            
+        </article>
+    
+    
+    
+        <article id="post-0">
+            <button id="post-toc-btn-0" class="dropbox-btn" onclick="toggleDropbox('post-toc-0')" >☰</button>
+            <div id="post-toc-0" class="dropbox-content table-of-contents float">
+                
+
+  <nav class="toc">
+  <ul>
+
+      <li>
+        <a href="../en/posts/affine-introduction/#tldr" class="toc-item toc-level-1">
+          
+          
+          
+          1.
+           TL;DR
+        </a>
+      </li>
+
+      <li>
+        <a href="../en/posts/affine-introduction/#comparison" class="toc-item toc-level-1">
+          
+          
+          
+          2.
+           Comparison
+        </a>
+      </li>
+
+      <li>
+        <a href="../en/posts/affine-introduction/#some-thoughts" class="toc-item toc-level-1">
+          
+          
+          
+          3.
+           Some Thoughts
+        </a>
+      </li>
+  </ul>
+  </nav>
+
+            </div>
+            
+            <h2><a href="../en/posts/affine-introduction/">AFFiNE: The Open-Source Alternative to Heptabase</a></h2>
+            
+            tags:
+            
+            <a href="../en/tags/sharing">sharing</a>,
+            
+            <a href="../en/tags/affine">affine</a>
+            
+            <div class="post-header">
+                @ballfish <span class="timestamp">22/06/2025</span>
+            </div>
+            <p><!-- introduction --></p>
+            
+            <div class="photosetx2">
+                
+                <a href="../images/affine-introduction/affine-pro-logo.webp" target="_blank"><img src="../images/affine-introduction/affine-pro-logo.webp"></a>
+                
+            </div>
+            
+            <div class="post-content readmore">
+                
+                
+                <div class="text-content"><!-- rest of the content -->
+<h2 id="tldr">TL;DR</h2>
+<p>If you&rsquo;re a fan of the Zettelkasten method—a non-linear, card-based system of note-taking and writing that …</p></!--></div>
+                <div class="full-content" style="display: none;"><!-- rest of the content -->
+<h2 id="tldr">TL;DR</h2>
+<p>If you&rsquo;re a fan of the Zettelkasten method—a non-linear, card-based system of note-taking and writing that emphasizes linking ideas rather than organizing them from top to bottom—then you&rsquo;ve probably heard of or seen Heptabase.
+<a href="https://heptabase.com/">Heptabase</a> is a visual note-taking tool developed by a Taiwanese team. It revolves around cards and whiteboards, allowing you to freely organize and connect ideas to build your personal knowledge network and better understand complex topics.
+The official website provides many tutorials and documentation, so I won’t go into too much detail here. It&rsquo;s feature-rich and beautifully designed.
+However, if you&rsquo;re looking for an open-source alternative with similar card and whiteboard concepts, you should definitely check out <a href="https://affine.pro/">AFFiNE</a>.
+Besides cards, whiteboards, and Notion-style databases, AFFiNE also supports mind maps, drawing, and more. It places a strong emphasis on privacy and data security, so you can use it entirely offline or even self-host your own server to manage your notes.</p>
+<h2 id="comparison">Comparison</h2>
+<table>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">AFFiNE</th>
+        <th scope="col">Heptabase</th>
+    </tr>
+    <tr>
+        <th scope"row">Core Features</th>
+        <td>
+            <ul>
+                <li>All-in-one document editing, whiteboard drawing, and database management</li>
+                <li>Local storage with privacy protection</li>
+                <li>Markdown support</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Whiteboards and mind map visual note-taking</li>
+                <li>PDF annotation and multimedia support</li>
+                <li>Markdown support</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">Platform Support</th>
+        <td>
+            <ul>
+                <li>Desktop app</li>
+                <li>Web</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Desktop app</li>
+                <li>Web</li>
+                <li>Mobile app</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">Sync & Collaboration</th>
+        <td>
+            <ul>
+                <li>Supports local storage and cloud sync</li>
+                <li>Free tier includes 10GB cloud space</li>
+                <li>Real-time collaboration support</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Multi-device sync and offline access</li>
+                <li>Real-time collaboration support</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">Open Source & Privacy</th>
+        <td>
+            <ul>
+                <li>Fully open source, self-hostable</li>
+                <li>Local storage by default, privacy-focused</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Proprietary software, not open source</li>
+                <li>Cloud storage with offline access</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<br>
+<p>Compared to Heptabase’s a lot of official documentation, AFFiNE’s site says:&ldquo;AFFiNE is not a dedicated tool. You should find your best way to use AFFiNE.&rdquo;
+In other words, AFFiNE doesn’t dictate how you should use it—you’re free to explore and shape your own workflow.</p>
+<p>Choose Heptabase if you prefer:</p>
+<ol>
+<li>A beautiful user interface</li>
+<li>Rich and varied features</li>
+<li>Clear usage examples</li>
+<li>Reducing mental load in managing notes</li>
+</ol>
+<p>Choose AFFiNE if you prefer:</p>
+<ol>
+<li>Open-source or self-hostable tools</li>
+<li>A fully local, offline solution instead of a cloud-based one</li>
+<li>The freedom to doodle and sketch on whiteboards as you like</li>
+</ol>
+<h2 id="some-thoughts">Some Thoughts</h2>
+<p>I personally switched from Heptabase to AFFiNE a while ago.
+The main reason: I realized that I only really used the card + whiteboard feature in Heptabase. I hardly touched the other functionalities. Sometimes, when I was busy, I barely opened the app for a whole month. Paying for a tool I wasn’t fully using made me feel like I was wasting money.
+So, earlier this year, I canceled my Heptabase subscription and began searching for alternatives. Thanks to ChatGPT, I discovered AFFiNE!
+Setting up a self-hosted AFFiNE instance was super easy—just followed the official documentation and used <code>docker compose</code> to get it up and running.
+I also appreciate being in control of my own data. It puts my mind at ease when writing notes on, say, system design at work, without worrying whether I’m exposing company secrets to some cloud-based service
+That said, during the self-hosting process, I did seriously calculate the costs—and realized that self-hosting a note-taking app may not actually be cheaper than using a cloud-based one. But that’s another story. I’ll probably write a separate post on &ldquo;Is it more cost-effective to self-host your note-taking app or just pay for a service?&rdquo;</p></div>
+                <summary class="read-more-btn" onclick="toggleReadMore('post-0')" style="display: inline;">read more</summary>
+                
+            </div>
+            
+        </article>
+    
+    
+    <script>
+    window.addEventListener('click', e => {
+        let dropboxs = document.getElementsByClassName("dropbox-content");
+        let dropbox_btns = document.getElementsByClassName("dropbox-btn");
+
+        if (dropbox_btns.namedItem(e.target.id) != null) return;
+
+        if(dropboxs.namedItem(e.target.id) == null) {
+            for (let i = 0; i < dropboxs.length; i++) {
+                dropboxs[i].removeAttribute("visible");
+            }
+        }
+    }, true)
+
+    function toggleReadMore(id) {
+        var post = document.getElementById(id)
+        var fullContent = post.getElementsByClassName("full-content")[0];
+        var btnText = post.getElementsByClassName("read-more-btn")[0];
+        var textContent = post.getElementsByClassName("text-content")[0];
+
+        if (fullContent.style.display === "none") {
+            textContent.style.display = "none";
+            fullContent.style.display = "inline";
+            btnText.innerHTML = "read less";
+        } else {
+            textContent.style.display = "inline";
+            fullContent.style.display = "none";
+            btnText.innerHTML = "read more";
+        }
+    }
+
+    function toggleDropbox(id) {
+        let dropbox = document.getElementById(id);
+
+        dropbox.toggleAttribute("visible");
+    }
+    </script>
+    </main>
+
+    
+</main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+defaultContentLanguage = 'zh'
+title = 'Ballog'
+theme = 'neopost'
+relativeURLs = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+theme = 'light-blue'
+posts-per-page = 1
+[languages]
+  [languages.zh]
+    languageCode = 'zh-tw'
+    contentDir = 'content/zh'
+    languageName = '中文'
+    weight = 1
+    [languages.zh.params.read-more]
+      length-limit = 80
+      [languages.zh.params.read-more.text]
+        more = "更多"
+        less = "少點"
+  [languages.en]
+    languageCode = 'en-us'
+    contentDir = 'content/en'
+    languageName = 'English'
+    weight = 2
+    [languages.en.params.read-more]
+      length-limit = 120
+      [languages.en.params.read-more.text]
+        more = "read more"
+        less = "read less"
+  [languages.jp]
+    languageCode = 'ja-jp'
+    contentDir = 'content/jp'
+    languageName = '日本語'
+    weight = 3
+    [languages.jp.params.read-more]
+      length-limit = 80
+      [languages.jp.params.read-more.text]
+        more = "もっと読む"
+        less = "もっと読む"

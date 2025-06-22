@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta name="generator" content="Hugo 0.147.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Ballog</title>
+    <link rel="canonical" href="//localhost:1313/">
+    
+    
+    
+    <meta name="description" content="">
+    
+    
+    
+    <style>
+
+
+
+:root {
+    --site-bg: url("flowertile.png");
+    --accent-color: #f55cc0;
+    --select-color: #ffc1e9;
+    --link-color: #5083C1;
+    --bg-color: #CEEAFF;
+    --text-color: #191919;
+    --bg-color2: white;
+    --border-color: #215697;
+    --special-text-color: #215697;
+    --post-header-color: white;
+    --post-shadow-color: #21569760;
+    --outline-color: #6EAAD6;
+    --outline-color2: #CEEAFF;
+    --list-style-type: "";
+    --list-style-image: url("flower.png");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@-moz-document url-prefix() {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-color) #00000000;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    -webkit-border-radius: .3rem;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+::selection {
+    background: var(--select-color);
+    color: var(--border-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: var(--site-bg);
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+p {line-height: 1.5em;}
+
+h1 {
+    font-size: 1.5em;
+    color: var(--post-header-color);
+    filter: drop-shadow(2px 0 0 var(--outline-color)) drop-shadow(0 2px 0 var(--outline-color)) drop-shadow(-2px 0 0 var(--outline-color)) drop-shadow(0 -2px 0 var(--outline-color))drop-shadow(0 1px 1px var(--outline-color2)) drop-shadow(1px 0 1px var(--outline-color2));
+}
+
+h4,
+h5,
+h6 {color: var(--special-text-color);}
+
+header {
+    background-size: 100%;
+    background-position: center;
+    min-height: 80px;
+    margin: 0 0;
+    align-content: center;
+}
+
+header > h1 {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    margin: 0 auto;
+    font-size: 2em;
+ 
+     
+    max-width: 600px;
+    padding: 6px 12px;
+    border-radius: 1em;
+    border: 4px double var(--outline-color);
+    filter: none;
+    text-align: center;
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+li.page-item {
+    list-style: none;
+}
+
+li.page-item a{
+    display: inline-flex;
+    font-size: 1rem;
+    margin: .2rem;
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+
+    text-decoration: none;
+    user-select: none;
+}
+
+li.page-item.active a{
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li.page-item.disabled a{
+    cursor: not-allowed;
+}
+
+li.page-item:not(.disabled):not(.active) a:hover{
+    background-color: var(--select-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+li {
+    
+        list-style-image: var(--list-style-image);
+    
+}
+
+nav {margin: 1em;}
+
+nav.links > ul {
+    max-width: 960px;
+    margin: auto;
+    line-height: 3rem;
+    list-style-type: none;
+    padding-left: 0;
+    justify-content: space-evenly;
+}
+
+nav.links li {
+    text-align: center;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+nav.links li > a {
+    font-weight: bold;
+    background-color: var(--bg-color);
+    border: 4px double var(--outline-color);
+    padding: .5em 3em;
+    text-decoration: none;
+}
+
+nav.links li > a:visited {color: var(--link-color);}
+nav.links li > a:hover {
+    color: var(--accent-color);
+    background-color: var(--select-color);
+}
+
+nav.languages {
+    margin: .3em;
+    text-align: center;
+}
+
+
+nav.languages ul {
+    display: inline-block;
+}
+
+nav.languages ul li {
+    display: inline-block;
+}
+
+a {
+    color: var(--link-color);
+    border-radius: .3em;
+    transition: .2s ease-out;
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: .2s ease;
+}
+
+#sidebar {
+    background-color: var(--bg-color2);
+    color: var(--special-text-color);
+    height: fit-content;
+    min-width: 320px;
+    margin-top: 1em;
+    margin-right: 2em;
+    border-radius: .5em;
+}
+
+.small-box {
+    max-width: 240px;
+    margin: auto;
+    border: 2px solid var(--bg-color);
+    font-size: 11px;
+    line-height: 1.5rem;
+}
+
+#avatar {
+    margin: .5em;
+    max-width: 320px;
+}
+
+ 
+.flower {
+    width: 300px; 
+    aspect-ratio: 1;
+    
+    
+        border-radius: 50%;
+    
+    
+}
+
+#bio {
+    margin: 20px;
+    padding: .2em;
+    background: var(--bg-color);
+    border: 4px double var(--bg-color2);
+    border-radius: 2em;
+    font-size: small;
+}
+
+#bio p { margin: 1em; }
+
+#content {
+    display: flex;
+    max-width: 960px;
+    margin: auto;
+}
+
+main {
+    padding: 1em;
+    padding-top: 0;
+}
+
+#top {
+    background-color: var(--bg-color);
+}
+
+#top section {
+    background-color: var(--bg-color2);
+    border-radius: .5em;
+    margin-bottom: 10px;
+    padding: .5em 1em;
+    width: 100%;
+}
+
+article {
+    background-color: var(--bg-color2);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+article img {
+    max-width: 100%;
+}
+
+.readmore summary {
+    font-weight: bold;
+    color: var(--special-text-color);
+    list-style: none;
+    cursor: pointer;
+}
+
+header h1 a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--special-text-color);
+}
+
+header h1 a:visited {
+    color: inherit;
+}
+
+header h1 a:hover {
+    color: inherit;
+}
+
+.readmore div {
+    display: inline;
+}
+
+.readmore div p {
+    display: inline;
+}
+
+.readmore summary::-webkit-details-marker {
+  display: none;
+}
+
+.readmore[open] > summary {
+    border-bottom: 2px dashed var(--bg-color);
+    padding-bottom: .6em;
+    margin-bottom: .6em;
+}
+
+.post-header {
+    color: var(--special-text-color);
+    font-weight: bold;
+    padding: .5rem 0;
+    border-bottom: 4px double var(--outline-color);
+}
+
+.timestamp {
+    font-weight: normal;
+    font-size: smaller;
+    margin: .2em;
+    float: right;
+}
+
+.tag-item p {
+    font-size: smaller;
+}
+
+.photosetx2,
+.photosetx3 {
+    display: grid;
+    gap: 4px;
+    align-items: center;
+}
+
+.photosetx2 {grid-template-columns: 1fr 1fr;}
+.photosetx3 {grid-template-columns: 1fr 1fr 1fr;}
+
+.cropped {
+    width: 156px;
+    height: 156px;
+    overflow: hidden;
+    object-position: 25% 25%;
+}
+.photosetx2 img,
+.photosetx3 img {object-fit: cover;}
+
+.center { text-align: center; }
+
+.img-right {
+    max-width: 7.5em;
+    max-height: 7.5em;
+    float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.small-text {
+    font-size: 11px;
+    text-shadow: var(--bg-color) 1px 1px;
+}
+
+.dropbox-btn {
+    color: var(--link-color);
+    font-weight: bold;
+    background-color: var(--bg-color);
+     
+    border: 1px solid var(--outline-color);
+     
+    text-decoration: none;
+}
+
+.dropbox-content[visible] {
+    display: block;
+}
+
+.dropbox-content {
+    display: none;
+    position: absolute;
+    z-index: 1
+}
+
+.table-of-contents {
+    background-color: var(--bg-color2);
+    padding: .3em;
+    border: 2px solid var(--border-color);
+    border-radius: .3em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+.table-of-contents.sidebar {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    width: 10rem;
+    flex-shrink: 0;
+    max-height: calc(100vh - 2rem);
+    overflow-x: auto;
+}
+
+.table-of-contents.float {
+    width: max-content;
+    max-width: 50vw;
+    max-height: 50%;
+    overflow: auto;
+}
+
+.table-of-contents nav {
+    margin: 0 .5em;
+}
+
+.table-of-contents nav ul {
+    margin: .5em 1em;
+    padding: 0;
+}
+
+.table-of-contents nav li {
+    margin: .3em 0;
+}
+
+#single-post {
+    display: flex;
+    gap: 1rem;
+}
+
+#single-post > article {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#single-post > article > #post-toc-mobile {
+    display: none;
+}
+
+ 
+@media only screen and (max-width: 800px) {
+    #content {
+        flex-wrap: wrap;
+    }
+    #sidebar {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 1em;
+        border-radius: .3em;
+    }
+    header {min-height: 110px;}
+    header > h1 { 
+        width: fit-content;
+        padding: .3em 1em;
+    }
+    nav.links > ul {
+     
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #bio {width: 50%;}
+    
+    #sidebar ul {
+        line-height: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    #sidebar li {
+        margin: .3em 1em;
+    }
+
+    #single-post > .table-of-contents.sidebar {
+        display: none;
+    }
+
+    #single-post > article > #post-toc-mobile {
+        display: inline;
+    }
+}
+</style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta charset="utf-8">
+</head>
+<body>
+        <header><h1 id="Ballog"><a href="//localhost:1313/">Ballog</a></h1></header>
+<main>
+    
+    
+    <nav class="languages links">
+        <ul>
+        
+        <li>
+            <a href="./en/">English</a>
+        </li>
+        
+        <li>
+            <a href="./jp/">日本語</a>
+        </li>
+        
+        </ul>
+    </nav>
+    
+    <div id="content">
+    <aside id="sidebar">
+        <div id="avatar">
+            
+            <img class="flower" src="./icon.png">
+            
+        </div>
+        
+        <div id="bio">
+        
+            <p>一隻像球的魚，喜歡嘗試各種新事物，期待某天能對開源界有所貢獻。</p>
+
+        
+        </div>
+        
+        <div class="small-box">
+            
+            </ul>
+        </div>
+        
+        <nav class="links">
+            <ul>
+            
+            
+                <li><a href="https://github.com/lili668668">GitHub</a></li>
+            
+                <li><a href="https://ballfish.io">WebSite</a></li>
+            
+            
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <article id="top" class="clearfix">
+            
+            <section>
+            <div class="img-right">
+                <img src="hole.png">
+            </div>
+            <div>
+            <h1>這是什麼樣的部落格？</h1>
+            
+                <p>是一個坑</p>
+            
+                <p>是一個球魚寫作的小坑洞</p>
+            
+                <p>洞裡的球魚一直在挖不同的坑</p>
+            
+            </div>
+            </section>
+            <section>
+            <h4>這個部落格有：</h4>
+                <ul>
+                
+                    <li>推薦文</li>
+                
+                    <li>技術</li>
+                
+                    <li>小說</li>
+                
+                </ul>
+            </section>
+            
+        </article>
+    
+    
+    
+        <article id="post-0">
+            <button id="post-toc-btn-0" class="dropbox-btn" onclick="toggleDropbox('post-toc-0')" >☰</button>
+            <div id="post-toc-0" class="dropbox-content table-of-contents float">
+                
+
+  <nav class="toc">
+  <ul>
+
+      <li>
+        <a href="./posts/affine-introduction/#tldr" class="toc-item toc-level-1">
+          
+          
+          
+          1.
+           TL;DR
+        </a>
+      </li>
+
+      <li>
+        <a href="./posts/affine-introduction/#%e6%af%94%e8%bc%83" class="toc-item toc-level-1">
+          
+          
+          
+          2.
+           比較
+        </a>
+      </li>
+
+      <li>
+        <a href="./posts/affine-introduction/#%e4%b8%80%e4%ba%9b%e5%bf%83%e5%be%97" class="toc-item toc-level-1">
+          
+          
+          
+          3.
+           一些心得
+        </a>
+      </li>
+  </ul>
+  </nav>
+
+            </div>
+            
+            <h2><a href="./posts/affine-introduction/">Heptabase 的開源方案 - Affine</a></h2>
+            
+            tags:
+            
+            <a href="./tags/sharing">sharing</a>,
+            
+            <a href="./tags/affine">affine</a>
+            
+            <div class="post-header">
+                @ballfish <span class="timestamp">22/06/2025</span>
+            </div>
+            <p><!-- introduction --></p>
+            
+            <div class="photosetx2">
+                
+                <a href="./images/affine-introduction/affine-pro-logo.webp" target="_blank"><img src="./images/affine-introduction/affine-pro-logo.webp"></a>
+                
+            </div>
+            
+            <div class="post-content readmore">
+                
+                
+                <div class="text-content"><!-- rest of the content -->
+<h2 id="tldr">TL;DR</h2>
+<p>如果你是卡片盒筆記法的愛好者。有別於傳統線性、由上而下的筆記與寫作系統。你喜歡將想法記錄在一張張卡片紙上，並建立卡片之間的關係連結。你應該聽過或看 …</p></!--></div>
+                <div class="full-content" style="display: none;"><!-- rest of the content -->
+<h2 id="tldr">TL;DR</h2>
+<p>如果你是卡片盒筆記法的愛好者。有別於傳統線性、由上而下的筆記與寫作系統。你喜歡將想法記錄在一張張卡片紙上，並建立卡片之間的關係連結。你應該聽過或看過 Heptabase 這個工具。
+<a href="https://heptabase.com/">Heptabase</a> 是一款由台灣團隊開發的視覺化筆記工具，主要元素為卡片（Card）與白板（Whiteboard），讓你能夠自由地組織和連結知識，構建個人知識網絡、深入理解複雜主題。
+Heptabase 官方的網站提供詳盡的使用教學與說明，因此這裡不再多加贅述。它功能齊全且畫面設計也賞心悅目。
+不過如果想要一個也是有卡片與白板概念的筆記軟體，並且是開源的替代方案，那一定要來試試看 <a href="https://affine.pro/">AFFiNE</a>。
+除了卡片、白板與 Notion 的資料庫概念，還可以畫心智圖、繪圖等功能。而且重視隱私跟資訊安全，所以你可以只使用在 local 而不開啟雲端功能，甚至可以自架一個自己的 Server ，管理自己的筆記資料。</p>
+<h2 id="比較">比較</h2>
+<table>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">AFFiNE</th>
+        <th scope="col">Heptabase</th>
+    </tr>
+    <tr>
+        <th scope"row">核心功能</th>
+        <td>
+            <ul>
+                <li>文檔編輯、白板繪圖、資料庫管理三合一</li>
+                <li>本地儲存與隱私保護</li>
+                <li>支援 Markdown 編輯</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>白板與心智圖視覺化筆記</li>
+                <li>支援 PDF 標註與多媒體內容</li>
+                <li>支援 Markdown 編輯</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">平台支援</th>
+        <td>
+            <ul>
+                <li>桌面應用程式</li>
+                <li>網頁版</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>桌面應用程式</li>
+                <li>網頁版</li>
+                <li>行動裝置</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">同步與協作</th>
+        <td>
+            <ul>
+                <li>支援本地儲存與雲端同步</li>
+                <li>免費版提供 10GB 雲端儲存空間</li>
+                <li>支援多人協作與即時同步</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>支援多裝置同步與離線存取</li>
+                <li>支援多人協作與即時同步</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th scope"row">開源與隱私</th>
+        <td>
+            <ul>
+                <li>完全開源，使用者可自行部署</li>
+                <li>資料預設儲存在本地，強調隱私保護</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>專有軟體，非開源</li>
+                <li>資料儲存在雲端，但支援離線存取</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<br>
+<p>但相對於 Heptabase 在官方網站上寫的各類的教學文件，AFFiNE 的官網文件表明：「AFFiNE is not a dedicated tool. You should find your best way to use AFFiNE.」
+AFFiNE 不是一個指導使用者怎麼使用的工具，所以你可以隨意使用這個工具。</p>
+<p>假如你喜歡：</p>
+<ol>
+<li>漂亮的界面設計</li>
+<li>豐富多樣的功能</li>
+<li>明確的使用範例</li>
+<li>減少管理筆記以外的心智負擔</li>
+</ol>
+<p>推薦可以使用 Heptabase</p>
+<p>假如你喜歡：</p>
+<ol>
+<li>開源或可自行管理資料</li>
+<li>更想要一個單機工具，而不是雲端工具</li>
+<li>想要可以在白板上隨意塗鴉</li>
+</ol>
+<p>那來試試 AFFiNE 吧！</p>
+<h2 id="一些心得">一些心得</h2>
+<p>最後來說一下，我自己從 Heptabase 轉到 AFFiNE 一陣子了。
+主因是我發現自己其實使用 Heptabase 時，很簡單的只是想要「卡片與白板」的功能而已，其他的功能很少用到。有的時候忙起來甚至一個月開不到幾次的筆記軟體，常常在想花這個錢，但是沒有把這個工具發揮的淋漓盡致，很愧對我的錢（？）。
+所以大約年初的時候，我就退掉了 Heptabase ，轉而尋找替代方案。感謝 ChatGPT 讓我認識了這個替代方案！
+AFFiNE 的自架方案很簡便，只要照著官網文件，用 docker compose 輕輕鬆鬆就能架起來。
+另外，我覺得可以自己掌握資料，不用擔心在雲端的筆記軟體寫這個公司系統設計的筆記，是不是一種商業機密洩漏（想太多了吧），心理上還是有好過一點。
+不過我在自架的過程中，認真計算了一下成本這件事，意識到也許自架筆記軟體的成本不會比使用雲服務筆記軟體還要便宜，不過這個就是後話了。之後再寫一篇「架設自己的筆記軟體與買筆記服務哪個更划算」的文吧。</p></div>
+                <summary class="read-more-btn" onclick="toggleReadMore('post-0')" style="display: inline;">更多</summary>
+                
+            </div>
+            
+        </article>
+    
+    
+    <script>
+    window.addEventListener('click', e => {
+        let dropboxs = document.getElementsByClassName("dropbox-content");
+        let dropbox_btns = document.getElementsByClassName("dropbox-btn");
+
+        if (dropbox_btns.namedItem(e.target.id) != null) return;
+
+        if(dropboxs.namedItem(e.target.id) == null) {
+            for (let i = 0; i < dropboxs.length; i++) {
+                dropboxs[i].removeAttribute("visible");
+            }
+        }
+    }, true)
+
+    function toggleReadMore(id) {
+        var post = document.getElementById(id)
+        var fullContent = post.getElementsByClassName("full-content")[0];
+        var btnText = post.getElementsByClassName("read-more-btn")[0];
+        var textContent = post.getElementsByClassName("text-content")[0];
+
+        if (fullContent.style.display === "none") {
+            textContent.style.display = "none";
+            fullContent.style.display = "inline";
+            btnText.innerHTML = "少點";
+        } else {
+            textContent.style.display = "inline";
+            fullContent.style.display = "none";
+            btnText.innerHTML = "更多";
+        }
+    }
+
+    function toggleDropbox(id) {
+        let dropbox = document.getElementById(id);
+
+        dropbox.toggleAttribute("visible");
+    }
+    </script>
+    </main>
+
+    
+</main>
+</body>
+</html>
