@@ -1,7 +1,6 @@
 defaultContentLanguage = 'zh'
 title = 'Ballog'
 theme = 'neopost'
-relativeURLs = true
 
 [caches]
   [caches.images]
