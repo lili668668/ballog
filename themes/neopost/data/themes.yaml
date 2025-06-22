@@ -1,5 +1,5 @@
 - name: "light-blue"
-  site-bg: "flowertile.png"
+  site-bg: "./flowertile.png"
   accent-color: "#f55cc0"
   select-color: "#ffc1e9"
   link-color: "#5083C1"
@@ -13,7 +13,7 @@
   post-outline-color: "#6EAAD6"
   post-outline-color2: "#CEEAFF"
   list-style:
-    image: "flower.png"
+    image: "./flower.png"
     # type: "+ "
 
 - name: "dark-blue"
