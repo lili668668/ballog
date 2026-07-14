@@ -10,6 +10,7 @@ theme = 'neopost'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      hardWraps = true
 
 [params]
 theme = 'light-blue'
